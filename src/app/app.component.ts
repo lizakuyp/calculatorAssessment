@@ -90,10 +90,13 @@ export class AppComponent {
         resultsString += element;
       }
     });
-    this.display = this.evalCustom(resultsString).toString();
-    this.resultSet = [];
-    this.resultSet.push(this.display);
-    this.setLastClicked("=", "number");
+    let resultEvaluated = this.evalCustom(resultsString);
+    if (resultEvaluated) {
+      this.display = this.evalCustom(resultsString).toString();
+      this.resultSet = [];
+      this.resultSet.push(this.display);
+      this.setLastClicked("=", "number");
+    }
   }
 
   /**
